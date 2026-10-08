@@ -1,0 +1,28 @@
+@if (product(); as p) {
+  <div class="detail">
+    <div class="zoom" (mousemove)="onMove($event)">
+      <img src="{{ p.image }}" alt="image">
+    </div>
+
+    <div class="info">
+      <h1>{{ p.name }}</h1>
+
+
+      <p class="price">{{ p.price }} zł</p>
+      <p>{{ p.description }}</p>
+
+      <button mat-flat-button (click)="cart.add(p)">
+        <mat-icon>add_shopping_cart</mat-icon>
+        Dodaj do koszyka
+      </button>
+    </div>
+  </div>
+    <div class="navigation">
+    <button mat-button (click)="previous()">← Poprzedni</button>
+    <button mat-button (click)="next()">Następny →</button>
+  </div>
+
+
+} @else {
+  <p>Nie znaleziono produktu. <a routerLink="/">Wróć do sklepu</a></p>
+}
